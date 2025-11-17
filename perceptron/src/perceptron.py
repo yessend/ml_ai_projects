@@ -3,7 +3,7 @@ import numpy as np
 
 class Perceptron:
 
-    def __init__(self, eta, n_iter, random_state):
+    def __init__(self, eta, n_iter, random_state = 42):
         self.eta = eta
         self.n_iter = n_iter
         self.random_state = random_state
