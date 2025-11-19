@@ -22,7 +22,7 @@ class AdalineGD:
     def activation(self, X):
     # Here, since we will use net_input(X) as input
     # X is basically a vector of shape [n_examples] (raw prediction)
-        return self.net_input(X)
+        return X
     
 
     def predict(self, X):
@@ -38,7 +38,7 @@ class AdalineGD:
 
 
         for i in range(self.n_iter):
-            forw_pass = self.activation(X)
+            forw_pass = self.activation(self.net_input(X))
             errors = (y - forw_pass)             # vector of erros: shape is [n_examples]
             self.w_ += self.eta * X.T.dot(errors) / X.shape[0]
             self.b_ += self.eta * errors.mean()
